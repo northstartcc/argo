@@ -1,0 +1,38 @@
+unifi:
+  deploymentStrategy:
+    type: Recreate
+  timezone: "America/Chicago"
+  image:
+    tag: stable-6
+  ingress:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    path: /
+    hosts:
+      - unifi.northstarcc.club
+    tls:
+      - secretName: unifi-tls
+        hosts:
+          - unifi.northstarcc.club
+  controllerService:
+    type: LoadBalancer
+    loadBalancerIP: 192.168.20.10
+    annotations:
+      metallb.universe.tf/allow-shared-ip: unifi-svc
+  stunService:
+    type: LoadBalancer
+    loadBalancerIP: 192.168.20.10
+    annotations:
+      metallb.universe.tf/allow-shared-ip: unifi-svc
+  syslogService:
+    type: LoadBalancer
+    loadBalancerIP: 192.168.20.10
+    annotations:
+      metallb.universe.tf/allow-shared-ip: unifi-svc
+  discoveryService:
+    type: LoadBalancer
+    loadBalancerIP: 192.168.20.10
+    annotations:
+      metallb.universe.tf/allow-shared-ip: unifi-svc
