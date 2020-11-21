@@ -15,3 +15,13 @@ home-assistant:
       - secretName: hass-tls
         hosts:
           - hass.northstarcc.club
+  vscode:
+    enabled: true
+    ingress:
+      enabled: true
+    hosts:
+      - vshass.nortstarcc.club
+    tls:
+      - secretName: vshass-tls
+      hosts:
+        - vshass.northstarcc.club
