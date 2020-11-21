@@ -18,10 +18,13 @@ home-assistant:
   vscode:
     enabled: true
     ingress:
-      enabled: true
-    hosts:
-      - vshass.nortstarcc.club
-    tls:
-      - secretName: vshass-tls
+      enabled: false
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+      path: /
       hosts:
         - vshass.northstarcc.club
+      tls: 
+        - secretName: vshass.northstarcc.club
+          hosts:
+            - vshass.northstarcc.club
