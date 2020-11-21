@@ -3,11 +3,11 @@ home-assistant:
     type: Recreate
   timezone: "America/Chicago"
   image:
-    tag: 0.118.1
+    tag: 0.118.2
   ingress:
     enabled: true
     annotations:
-      cert-manager.io/cluster-issuer: letsencrypt
+      cert-manager.io/cluster-issuer: letsencrypt-prod
     path: /
     hosts:
       - hass.northstarcc.club
