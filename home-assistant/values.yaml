@@ -3,7 +3,7 @@ home-assistant:
     type: Recreate
   timezone: "America/Chicago"
   image:
-    tag: 0.118.2
+    tag: 0.118.4
   ingress:
     enabled: true
     annotations:
